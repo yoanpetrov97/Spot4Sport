@@ -1,0 +1,23 @@
+<h1>Add court</h1>
+<div class="col-auto">
+    <input #inputElement
+           type="text"
+           class="form-control"
+           placeholder="Court name">
+</div>
+<div class="col-auto">
+    <button type="submit"
+            class="btn mb-3 green-button create-button"
+            (click)="addNewCourt(inputElement.value)">Create
+    </button>
+</div>
+<h1>All courts</h1>
+<div class="card" style="width: 18rem;" *ngFor="let court of courts">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{court.name}}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a href="#" class="btn green-button">Reserve</a>
+    </div>
+</div>
