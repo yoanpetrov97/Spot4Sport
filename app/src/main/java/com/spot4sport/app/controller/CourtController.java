@@ -1,4 +1,4 @@
-package com.spot4sport.app.controler;
+package com.spot4sport.app.controller;
 
 import com.spot4sport.app.exception.CourtNotFoundException;
 import com.spot4sport.app.model.Court;

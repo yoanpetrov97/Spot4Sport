@@ -1,4 +1,4 @@
-package com.spot4sport.app;
+package com.spot4sport.app.config;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;

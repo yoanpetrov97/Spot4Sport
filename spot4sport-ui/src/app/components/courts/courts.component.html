@@ -1,23 +1,34 @@
 <h1>Add court</h1>
-<div class="col-auto">
-    <input #inputElement
-           type="text"
-           class="form-control"
-           placeholder="Court name">
-</div>
-<div class="col-auto">
-    <button type="submit"
-            class="btn mb-3 green-button create-button"
-            (click)="addNewCourt(inputElement.value)">Create
-    </button>
+<div class="add-court" style="width: 60%">
+    <div class="col-auto" style="width: 60%;">
+        <input #inputElement
+               type="text"
+               class="form-control"
+               placeholder="Court name">
+    </div>
+    <div class="custom-file mb-3">
+        <input type="file" class="custom-file-input" id="customFile" name="filename"
+               (change)="handleFileInput($event.target.files)">
+        <label class="custom-file-label" for="customFile">Choose file</label>
+    </div>
+    <div class="col-auto">
+        <button type="submit"
+                class="btn mb-3 green-button"
+                (click)="addNewCourt(inputElement.value); inputElement.value = ''">
+            Create
+        </button>
+    </div>
 </div>
 <h1>All courts</h1>
-<div class="card" style="width: 18rem;" *ngFor="let court of courts">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{court.name}}</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-        <a href="#" class="btn green-button">Reserve</a>
+<div class="courts">
+    <div class="card court" *ngFor="let court of courts">
+        <img src="/assets/court-{{court.id%4}}.jpg" height="200" class="card-img-top" alt="{{court.name}}">
+        <div class="card-body">
+            <h5 class="card-title">{{court.name}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a class="btn green-button">Reserve</a>
+            <a class="btn btn-danger delete-button" (click)="deleteCourt(court.id)">Delete</a>
+        </div>
     </div>
 </div>

@@ -8,9 +8,11 @@ import {Court} from "../models/court";
     styleUrls: ["./courts.component.scss"]
 })
 export class CourtsComponent implements OnInit {
+    fileToUpload: File = null;
     courts: Court[] = [];
 
-    constructor(private courtsService: CourtsService) { }
+    constructor(private courtsService: CourtsService) {
+    }
 
     async ngOnInit(): Promise<void> {
         this.courts = await this.getAllCourts();
@@ -20,7 +22,18 @@ export class CourtsComponent implements OnInit {
         return this.courtsService.getAllCourts();
     }
 
-    addNewCourt(courtName: string): Promise<Court> {
-        return this.courtsService.addNewCourt(courtName);
+    async addNewCourt(courtName: string): Promise<Court> {
+        const court: Court = await this.courtsService.addNewCourt(courtName);
+        this.courts = await this.getAllCourts();
+        return court;
+    }
+
+    async deleteCourt(id: number): Promise<void> {
+        await this.courtsService.deleteCourt(id);
+        this.courts = await this.getAllCourts();
+    }
+
+    handleFileInput(files: FileList): void {
+        this.fileToUpload = files.item(0);
     }
 }
