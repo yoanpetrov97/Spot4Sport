@@ -5,6 +5,7 @@ import {AppComponent} from "./app.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {CourtsComponent} from "./components/courts/courts.component";
 import {HttpClientModule} from "@angular/common/http";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
     declarations: [
@@ -14,7 +15,13 @@ import {HttpClientModule} from "@angular/common/http";
     imports: [
         BrowserModule,
         NgbModule,
-        HttpClientModule
+        HttpClientModule,
+        RouterModule.forRoot([
+            {
+                path: "courts",
+                component: CourtsComponent
+            },
+        ]),
     ],
     providers: [],
     bootstrap: [AppComponent]

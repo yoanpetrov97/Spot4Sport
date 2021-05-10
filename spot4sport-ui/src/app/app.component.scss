@@ -1,0 +1,43 @@
+
+@import "src/styles";
+
+.header {
+    display: flex;
+    background-color: $spot4sport-green;
+    width: 100%;
+    height: 80px;
+    align-items: flex-end;
+
+    .navigation {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: flex-end;
+        margin-right: 3%;
+
+        .navigation-buttons {
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            a {
+                white-space: nowrap;
+                color: white;
+                margin-left: 10%;
+                font-family: sans-serif;
+            }
+
+            .active-button {
+                font-weight: bold;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}

@@ -1,2 +1,12 @@
-<img src="assets/header.png" width="100%" height="100%">
-<app-courts></app-courts>
+<div class="header">
+    <img src="assets/logo.png" height="60px">
+    <div class="navigation">
+        <span class="navigation-buttons">
+            <a class="btn-link">My reservations</a>
+            <a routerLink="/courts" class="btn-link" [ngClass]="{'active-button': url === '/courts'}">Courts</a>
+            <a class="btn-link">Events</a>
+            <a class="btn-link">People</a>
+        </span>
+    </div>
+</div>
+<router-outlet></router-outlet>
