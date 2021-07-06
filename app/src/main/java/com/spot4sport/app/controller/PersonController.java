@@ -18,7 +18,7 @@ public class PersonController {
         this.repository = repository;
     }
 
-    @GetMapping("/Persons")
+    @GetMapping("/persons")
     List<Person> all() {
         return repository.findAll();
     }
@@ -29,13 +29,13 @@ public class PersonController {
     }
 
 
-    @GetMapping("/Persons/{id}")
+    @GetMapping("/persons/{id}")
     Person one(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new PersonNotFoundException(id));
     }
 
-    @PutMapping("/Persons/{id}")
+    @PutMapping("/persons/{id}")
     Person editPerson(@RequestBody Person newPerson, @PathVariable Long id) {
 
         return repository.findById(id)
@@ -46,7 +46,7 @@ public class PersonController {
                 .orElseThrow(() -> new PersonNotFoundException(id));
     }
 
-    @DeleteMapping("/Persons/{id}")
+    @DeleteMapping("/persons/{id}")
     void delete(@PathVariable Long id) {
         repository.deleteById(id);
     }
