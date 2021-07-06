@@ -3,25 +3,24 @@ package com.spot4sport.app.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 import java.time.LocalDateTime;
 
 @Entity
-public class Event {
+public class Reservation {
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
     private Court courtName;
     private Person eventHost;
     private String time;
     private int numberOfUsers;
 
-    public Event() {
+    public Reservation() {
     }
 
-    public Event(Long id, String name, Court courtName, Person eventHost, String time, int numberOfUsers) {
+    public Reservation(Long id, Court courtName, Person eventHost, String time, int numberOfUsers) {
         this.id = id;
-        this.name = name;
         this.courtName = courtName;
         this.eventHost = eventHost;
         this.time = time;
@@ -30,12 +29,11 @@ public class Event {
 
     @Override
     public String toString() {
-        return "Event{" +
+        return "Reservation{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", courtName=" + courtName +
                 ", eventHost=" + eventHost +
-                ", time=" + time +
+                ", time='" + time + '\'' +
                 ", numberOfUsers=" + numberOfUsers +
                 '}';
     }
@@ -45,20 +43,18 @@ public class Event {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Event event = (Event) o;
+        Reservation that = (Reservation) o;
 
-        if (numberOfUsers != event.numberOfUsers) return false;
-        if (id != null ? !id.equals(event.id) : event.id != null) return false;
-        if (name != null ? !name.equals(event.name) : event.name != null) return false;
-        if (courtName != null ? !courtName.equals(event.courtName) : event.courtName != null) return false;
-        if (eventHost != null ? !eventHost.equals(event.eventHost) : event.eventHost != null) return false;
-        return time != null ? time.equals(event.time) : event.time == null;
+        if (numberOfUsers != that.numberOfUsers) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (courtName != null ? !courtName.equals(that.courtName) : that.courtName != null) return false;
+        if (eventHost != null ? !eventHost.equals(that.eventHost) : that.eventHost != null) return false;
+        return time != null ? time.equals(that.time) : that.time == null;
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (courtName != null ? courtName.hashCode() : 0);
         result = 31 * result + (eventHost != null ? eventHost.hashCode() : 0);
         result = 31 * result + (time != null ? time.hashCode() : 0);
@@ -72,14 +68,6 @@ public class Event {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Court getCourtName() {
