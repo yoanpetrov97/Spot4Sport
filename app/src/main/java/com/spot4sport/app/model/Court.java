@@ -12,7 +12,6 @@ public class Court {
     private String name;
     private String playgrounds;
     private String address;
-    //TODO Add location(probably should be a class)
 
     public String getPlaygrounds() {
         return playgrounds;
