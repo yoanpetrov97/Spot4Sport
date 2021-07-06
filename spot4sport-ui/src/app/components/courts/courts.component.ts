@@ -16,6 +16,12 @@ export class CourtsComponent implements OnInit {
 
     async ngOnInit(): Promise<void> {
         this.courts = await this.getAllCourts();
+        this.courts.forEach(court => {
+            court.name = court.name.replace(" \"", "\n\"");
+            while (court.playgrounds.includes(",")) {
+                court.playgrounds = court.playgrounds.replace(", ", "\n");
+            }
+        });
     }
 
     getAllCourts(): Promise<Court[]> {

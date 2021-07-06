@@ -1,11 +1,11 @@
 <div class="header">
-    <img src="assets/logo.png" height="60px">
+    <img src="assets/logo.png" height="60px" routerLink="/courts">
     <div class="navigation">
         <span class="navigation-buttons">
-            <a class="btn-link">My reservations</a>
-            <a routerLink="/courts" class="btn-link" [ngClass]="{'active-button': url === '/courts'}">Courts</a>
-            <a class="btn-link">Events</a>
-            <a class="btn-link">People</a>
+            <a class="btn-link">Резервации</a>
+            <a routerLink="/courts" class="btn-link" [ngClass]="{'active-button': url === '/courts'}">Спортни зали</a>
+            <a class="btn-link">Събития</a>
+            <a class="btn-link">Хора</a>
         </span>
     </div>
 </div>

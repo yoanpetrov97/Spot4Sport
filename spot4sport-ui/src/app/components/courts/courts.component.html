@@ -1,29 +1,31 @@
-<h1>Add court</h1>
-<div class="add-court" style="width: 60%">
-    <div class="col-auto" style="width: 60%;">
+<h1>Спортни зали</h1>
+
+<div class="search-court" style="width: 50%">
+    <div class="col-auto" style="width: 80%;">
         <input #inputElement
                type="text"
                class="form-control"
-               placeholder="Court name">
+               placeholder="Име на спортна зала, спорт или район">
     </div>
     <div class="col-auto">
         <button type="submit"
                 class="btn mb-3 green-button"
                 (click)="addNewCourt(inputElement.value); inputElement.value = ''">
-            Create
+            Търси
         </button>
     </div>
 </div>
-<h1>All courts</h1>
 <div class="courts">
     <div class="card court" *ngFor="let court of courts">
         <img src="/assets/court-{{court.id%4}}.jpg" height="200" class="card-img-top" alt="{{court.name}}">
         <div class="card-body">
-            <h5 class="card-title">{{court.name}}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a class="btn green-button">Reserve</a>
-            <a class="btn btn-danger delete-button" (click)="deleteCourt(court.id)">Delete</a>
+            <h5 class="card-title name">{{court.name}}</h5>
+            <div class="card-description">
+                <p class="card-text playgrounds">{{court.playgrounds}}</p>
+                <p class="card-text address"><strong>{{court.address}}</strong></p>
+            </div>
         </div>
+        <a class="btn green-button reserve-button">Резервирай</a>
+        <!--            <a class="btn btn-danger delete-button" (click)="deleteCourt(court.id)">Изтрий</a>-->
     </div>
 </div>
