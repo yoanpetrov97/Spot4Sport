@@ -3,15 +3,17 @@ package com.spot4sport.app.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
-import java.time.LocalDateTime;
 
 @Entity
 public class Reservation {
     @Id
     @GeneratedValue
     private Long id;
+    @OneToOne
     private Court courtName;
+    @OneToOne
     private Person eventHost;
     private String time;
     private int numberOfUsers;

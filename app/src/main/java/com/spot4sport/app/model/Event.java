@@ -1,9 +1,6 @@
 package com.spot4sport.app.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
 @Entity
 public class Event {
@@ -11,7 +8,9 @@ public class Event {
     @GeneratedValue
     private Long id;
     private String name;
+    @OneToOne
     private Court courtName;
+    @OneToOne
     private Person eventHost;
     private String time;
     private int numberOfUsers;

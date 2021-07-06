@@ -2,7 +2,9 @@ package com.spot4sport.app.controller;
 
 import java.util.List;
 
+import com.spot4sport.app.exception.PersonNotFoundException;
 import com.spot4sport.app.exception.ReservationNotFoundException;
+import com.spot4sport.app.model.Person;
 import com.spot4sport.app.model.Reservation;
 import com.spot4sport.app.repository.ReservationRepository;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +36,7 @@ public class ReservationController {
                 .orElseThrow(() -> new ReservationNotFoundException(id));
     }
 
-    @DeleteMapping("/events/{id}")
+    @DeleteMapping("/reservations/{id}")
     void delete(@PathVariable Long id) {
         repository.deleteById(id);
     }
