@@ -18,7 +18,7 @@ export class CourtsComponent implements OnInit {
         this.courts = await this.getAllCourts();
         this.courts.forEach(court => {
             court.name = court.name.replace(" \"", "\n\"");
-            while (court.playgrounds.includes(",")) {
+            while (court.playgrounds && court.playgrounds.includes(",")) {
                 court.playgrounds = court.playgrounds.replace(", ", "\n");
             }
         });

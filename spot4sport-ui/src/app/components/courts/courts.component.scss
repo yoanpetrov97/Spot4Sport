@@ -10,7 +10,6 @@
 
 .search-court {
     display: flex;
-    justify-content: center;
 }
 
 .courts {
@@ -65,4 +64,15 @@
 
 .reserve-button {
     margin-bottom: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .6);
+}
+
+.city-dropdown {
+    align-self: flex-start;
+    margin: 0 10px;
+}
+
+.court-image {
+    box-shadow: 0 0 8px rgba(0, 0, 0, .6);
+    border-radius: 3%;
 }
