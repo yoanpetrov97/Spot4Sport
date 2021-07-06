@@ -8,5 +8,7 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
 
-    url = window.location.pathname;
+    get url(): string {
+        return window.location.pathname;
+    }
 }
